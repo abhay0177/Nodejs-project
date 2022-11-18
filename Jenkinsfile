@@ -7,6 +7,14 @@ pipeline{
 	}
 
 	stages {
+		
+		stage('gitclone'){
+		
+			steps {
+				git 'https://github.com/abhay0177/Nodejs-project.git'
+			}
+		
+		}
 
 		stage('Build') {
 

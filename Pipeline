@@ -1,0 +1,15 @@
+node {   
+    stage('Clone repository') {
+        git credentialsId: 'git', url: 'https://github.com/abhay0177/Nodejs-project.git'
+    }
+    
+    stage('Build image') {
+       dockerImage = docker.build("abhays1/nodeapp:latest")
+    }
+    
+ stage('Push image') {
+        withDockerRegistry([ credentialsId: "hub", url: "" ]) {
+        dockerImage.push()
+        }
+    }    
+}

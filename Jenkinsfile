@@ -1,25 +1,24 @@
 pipeline{
 
-	agent any                               
+	agent any
 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('docker-nodejs')
 	}
 
 	stages {
-		
-		stage('gitclone'){
-		
+	    
+	    stage('gitclone') {
+
 			steps {
 				git 'https://github.com/abhay0177/Nodejs-project.git'
 			}
-		
 		}
 
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t abhays1/nodeapp:latest .'
+				sh 'docker build -t abhays1/nodeapp_test:latest .'
 			}
 		}
 
@@ -33,7 +32,7 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'docker push abhays1/nodeapp:latest'
+				sh 'docker push abhays1/nodeapp_test:latest'
 			}
 		}
 	}

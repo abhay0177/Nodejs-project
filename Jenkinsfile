@@ -8,7 +8,7 @@ pipeline{
 
 	stages {
 	    
-	    stage('gitclone') {
+	        stage('gitclone') {
 
 			steps {
 				git 'https://github.com/abhay0177/Nodejs-project.git'

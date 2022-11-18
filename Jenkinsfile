@@ -1,6 +1,6 @@
 pipeline{
 
-	agent (label "docker-build-node")
+	agent any
 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('docker-nodejs')
